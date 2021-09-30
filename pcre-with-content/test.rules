@@ -1,0 +1,1 @@
+alert tcp any any -> any any (msg:"TEST PCRE"; content:":generator"; pcre:"/:generator-(\d+):/, flow:generator/counter"; sid:3; rev:1;)
