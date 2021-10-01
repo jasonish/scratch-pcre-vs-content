@@ -42,3 +42,15 @@ Rule: `alert tcp any any -> any any (msg:"TEST PCRE"; content:":generator"; pcre
 
 Matches 907 times. I'd expect 911 from the `content-only` test, but the regular
 expression limits the matches further.
+
+### tcp-pkt-pcre
+
+Rule: `alert tcp-pkt any any -> any any (msg:"TEST PCRE"; pcre:"/:generator-(\d+):/, pkt:generator/counter"; sid:1; rev:1;)`
+
+Matches 989 times. Better than `pcre-only` test.
+
+### tcp-pkt-content
+
+Rule: `alert tcp-pkt any any -> any any (msg:"TEST CONTENT"; content:":generator-"; sid:2; rev:1;)`
+
+Matches 992 times.
